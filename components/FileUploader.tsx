@@ -21,12 +21,12 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
   const { toast } = useToast();
   const [files, setFiles] = useState<File[]>([]);
 
-  const acceptedFiles = [
-    "image/jpeg",
-    "image/png",
-    "image/gif",
-    "image/svg+xml",
-  ];
+  // const acceptedFiles = [
+  //   "image/jpeg",
+  //   "image/png",
+  //   "image/gif",
+  //   "image/svg+xml",
+  // ];
   const onDrop = useCallback(
     async (acceptedFiles: File[]) => {
       setFiles(acceptedFiles);
@@ -58,7 +58,7 @@ const FileUploader = ({ ownerId, accountId, className }: Props) => {
       });
       await Promise.all(uploadPromises);
     },
-    [ownerId, accountId, path],
+    [ownerId, accountId, path, toast],
   );
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
   const handleRemoveFile = (
