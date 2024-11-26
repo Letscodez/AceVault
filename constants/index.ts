@@ -83,4 +83,4 @@ export const sortTypes = [
 
 export const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
 export const avatarPlaceholderUrl =
-  "https://cdn1.iconfinder.com/data/icons/avatar-vol-9/512/2-128.png";
+  "https://img.freepik.com/premium-psd/3d-render-avatar-character_23-2150611743.jpg";

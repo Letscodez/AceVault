@@ -4,7 +4,6 @@ import React from "react";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -15,6 +14,7 @@ import { navItems } from "@/constants";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import FileUploader from "./FileUploader";
+import { signOut } from "@/lib/actions/user.actions";
 type Props = {
   fullName: string;
   avatar: string;
@@ -98,7 +98,7 @@ const MobileNavigation = ({
             <button
               type="submit"
               className="mobile-sign-out-button"
-              onClick={() => {}}
+              onClick={async () => await signOut()}
             >
               <Image
                 src="/assets/icons/logout.svg"

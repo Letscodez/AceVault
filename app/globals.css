@@ -314,7 +314,7 @@
     @apply primary-btn h-[52px] gap-2 px-10 shadow-drop-1 !important;
   }
   .uploader-preview-list {
-    @apply fixed bottom-10 right-10 z-50 flex size-full h-fit max-w-[480px] flex-col gap-3 rounded-[20px] bg-white p-7 shadow-drop-3 !important;
+    @apply fixed bottom-10 right-10 z-50 flex size-full h-fit max-w-[480px] flex-col gap-3 rounded-[20px] bg-bg/60 backdrop-blur-sm p-7 shadow-drop-3 !important;
   }
   .uploader-preview-item {
     @apply flex items-center justify-between  gap-3 rounded-xl p-3 shadow-drop-3 !important;
