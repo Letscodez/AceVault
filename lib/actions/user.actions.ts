@@ -107,14 +107,13 @@ export const signOut = async () => {
   const { account } = await createSessionClient();
   try {
     await account.deleteSession("current");
-    (await cookies()).delete("appwrite-session");
+    const cookieStore = await cookies();
+    cookieStore.delete("appwrite-session");
+    redirect("/sign-in");
   } catch (error) {
     handleError(error, "Failed to sign out.");
-  } finally {
-    redirect("/sign-in");
   }
 };
-
 export const signIn = async (email: string) => {
   try {
     const existingUser = await getUserByEmail(email);
