@@ -7,7 +7,7 @@ interface Props {
   extension: string;
   url?: string;
   imageClassName?: string;
-  Classname?: string;
+  className?: string;
 }
 
 const Thumbnail = ({
@@ -15,11 +15,11 @@ const Thumbnail = ({
   extension,
   url = "",
   imageClassName,
-  Classname,
+  className,
 }: Props) => {
   const isImage = type === "image" && extension !== "svg";
   return (
-    <figure className={cn('thumbnail', Classname)}>
+    <figure className={cn('thumbnail', className)}>
       <Image
         src={isImage ? url : getFileIcon(extension, type)}
         alt="thumbnaill"

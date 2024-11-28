@@ -98,8 +98,8 @@ export const getCurrentUser = async () => {
     // Return the first document if found
     return parseStringify(user.documents[0]);
   } catch (error) {
-    console.error("Error fetching current user:", error);
-    throw new Error("Failed to fetch current user"); // Throw an error for better error management
+    handleError(error, "Failed to get current user");
+    return null;
   }
 };
 
