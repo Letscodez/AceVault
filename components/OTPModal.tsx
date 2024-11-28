@@ -43,7 +43,7 @@ const OTPmodal = ({
       });
 
       if (sessionId) router.push("/");
-    } catch (error) {
+    } catch {
       alert("Failed to submit OTP");
     } finally {
       setLoading(false);
