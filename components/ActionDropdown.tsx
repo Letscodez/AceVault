@@ -27,14 +27,14 @@ import { renameFile } from "@/lib/actions/file.actions";
 import { usePathname } from "next/navigation";
 import { FileDetails } from "./ActionsModalContent";
 
-export const ActionDropdown = ({ file }: Models.Document) => {
+export const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const path = usePathname();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [action, setAction] = useState<ActionType | null>(null);
   const [name, setName] = useState(file.name);
   const [isLoading, setIsLoading] = useState(false);
-  const [emails, setEmails] = useState<string[]>([]);
+  // const [emails, setEmails] = useState<string[]>([]);
   const closeAllModals = () => {
     setIsModalOpen(false);
     setIsDropdownOpen(false);
