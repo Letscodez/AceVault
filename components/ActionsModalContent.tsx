@@ -11,7 +11,10 @@ const ImageThumbnail = ({ file }: { file: Models.Document }) => {
       <div className="flex flex-col">
         <p className="subtitle-2 mb-1">
           {file.name}
-          <FormattedDateTime date={file.$createdAt} className="caption text-light-100" />
+          <FormattedDateTime
+            date={file.$createdAt}
+            className="caption text-light-100"
+          />
         </p>
       </div>
     </div>
