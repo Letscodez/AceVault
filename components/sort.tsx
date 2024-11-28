@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Sort = () => {
-  return (
-    <div>sort</div>
-  )
-}
+  return <div>sort</div>;
+};
 
-export default Sort
+export default Sort;

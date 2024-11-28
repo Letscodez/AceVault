@@ -6,14 +6,14 @@ import { signOut } from "@/lib/actions/user.actions";
 interface Props {
   userId: string;
   accountId: string;
-};
+}
 
-const Header = ({userId , accountId} : Props) => {
+const Header = ({ userId, accountId }: Props) => {
   return (
     <header className="header">
       <Search />
       <div className="header-wrapper">
-        <FileUploader ownerId={userId} accountId={accountId}/>
+        <FileUploader ownerId={userId} accountId={accountId} />
         <form
           action={async () => {
             "use server";

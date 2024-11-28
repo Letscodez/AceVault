@@ -19,7 +19,7 @@ const Thumbnail = ({
 }: Props) => {
   const isImage = type === "image" && extension !== "svg";
   return (
-    <figure className={cn('thumbnail', className)}>
+    <figure className={cn("thumbnail", className)}>
       <Image
         src={isImage ? url : getFileIcon(extension, type)}
         alt="thumbnaill"
