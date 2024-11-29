@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,7 +8,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,7 +23,12 @@ import Link from "next/link";
 import { constructDownloadUrl } from "@/lib/utils";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-import { deleteFile, renameFile, updateFileUsers } from "@/lib/actions/file.actions";
+import {
+  deleteFile,
+  getBaseName,
+  renameFile,
+  updateFileUsers,
+} from "@/lib/actions/file.actions";
 import { usePathname } from "next/navigation";
 import { FileDetails, ShareInput } from "./ActionsModalContent";
 
@@ -32,9 +37,19 @@ export const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [action, setAction] = useState<ActionType | null>(null);
-  const [name, setName] = useState(file.name);
+  const [name, setName] = useState<string>(""); // Initialize as empty
   const [isLoading, setIsLoading] = useState(false);
   const [emails, setEmails] = useState<string[]>([]);
+
+  // Async initialization of the `name` state
+  useEffect(() => {
+    const initializeName = async () => {
+      const baseName = await getBaseName(file.name);
+      setName(baseName);
+    };
+    initializeName();
+  }, [file.name]);
+
   const closeAllModals = () => {
     setIsModalOpen(false);
     setIsDropdownOpen(false);
@@ -42,19 +57,21 @@ export const ActionDropdown = ({ file }: { file: Models.Document }) => {
     setName(file.name);
     setEmails([]);
   };
+
   const handleRemoveUser = async (email: string) => {
     const updatedEmails = emails.filter((e) => e !== email);
-    const sucess = await updateFileUsers({
+    const success = await updateFileUsers({
       fileId: file.$id,
       emails: updatedEmails,
       path,
     });
-    if (sucess) setEmails(updatedEmails);
+    if (success) setEmails(updatedEmails);
     closeAllModals();
   };
+
   const handleAction = async () => {
     if (!action) return;
-    let sucess = false;
+    let success = false;
     setIsLoading(true);
     const actions = {
       rename: () =>
@@ -64,13 +81,14 @@ export const ActionDropdown = ({ file }: { file: Models.Document }) => {
         deleteFile({ fileId: file.$id, bucketFileId: file.bucketFileId, path }),
     };
 
-    sucess = await actions[action.value as keyof typeof actions]();
+    success = await actions[action.value as keyof typeof actions]();
 
-    if (sucess) {
+    if (success) {
       closeAllModals();
     }
     setIsLoading(false);
   };
+
   const renderDialogContent = () => {
     if (!action) return null;
     const { value, label } = action;
@@ -128,6 +146,7 @@ export const ActionDropdown = ({ file }: { file: Models.Document }) => {
       </DialogContent>
     );
   };
+
   return (
     <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
       <DropdownMenu open={isDropdownOpen} onOpenChange={setIsDropdownOpen}>

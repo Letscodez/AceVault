@@ -118,7 +118,8 @@ export const renameFile = async ({
 }: RenameFileProps) => {
   const { databases } = await createAdminClient();
   try {
-    const newName = `${name}.${extension}`;
+    const baseName = await getBaseName(name);
+    const newName = `${baseName}.${extension}`;
     const updatedFile = await databases.updateDocument(
       appwriteConfig.databaseId,
       appwriteConfig.filesCollectionId,
@@ -174,4 +175,11 @@ export const deleteFile = async ({
   } catch (error) {
     handleError(error, "Error renaming file");
   }
+};
+
+export const getBaseName = async (fileName: string): Promise<string> => {
+  const result = fileName.includes(".")
+    ? fileName.split(".").slice(0, -1).join(".")
+    : fileName;
+  return Promise.resolve(result);
 };
