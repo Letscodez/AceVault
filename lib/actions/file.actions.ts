@@ -61,7 +61,7 @@ const createQueries = (currentUser: Models.Document) => {
   const queries = [
     Query.or([
       Query.equal("owner", [currentUser.$id]),
-      Query.greaterThan("size", 0),
+      Query.contains("users", [currentUser.$id]),
     ]),
   ];
   return queries;
@@ -88,6 +88,27 @@ export const getFiles = async () => {
   }
 };
 
+export const updateFileUsers = async ({
+  fileId,
+  emails,
+  path,
+}: UpdateFileUsersProps) => {
+  const { databases } = await createAdminClient();
+  try {
+    const updatedFile = await databases.updateDocument(
+      appwriteConfig.databaseId,
+      appwriteConfig.filesCollectionId,
+      fileId,
+      {
+        users: emails,
+      },
+    );
+    revalidatePath(path);
+    return parseStringify(updatedFile);
+  } catch (error) {
+    handleError(error, "Error renaming file");
+  }
+};
 export const renameFile = async ({
   fileId,
   name,

@@ -9,9 +9,9 @@ export const FormattedDateTime = ({
   className?: string;
 }) => {
   return (
-    <p className={cn("body-1 text-gray-300", className)}>
+    <span className={cn("body-1 text-gray-300 block", className)}>
       {formatDateTime(date)}
-    </p>
+    </span>
   );
 };
 export default FormattedDateTime;
