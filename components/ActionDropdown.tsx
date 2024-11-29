@@ -41,13 +41,13 @@ export const ActionDropdown = ({ file }: { file: Models.Document }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [emails, setEmails] = useState<string[]>([]);
 
-  // Async initialization of the `name` state
   useEffect(() => {
     const initializeName = async () => {
       const baseName = await getBaseName(file.name);
       setName(baseName);
     };
     initializeName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file.name]);
 
   const closeAllModals = () => {
