@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "AceVault",
     images: [
       {
-        url: "https://AceVault.vercel.app/images/og.png",
+        url: "https://AceVault.vercel.app/assets/images/og.png",
         alt: "AceVault interface showcasing secure storage features.",
       },
     ],
@@ -35,13 +35,13 @@ export const metadata: Metadata = {
     creatorId: "@AceVaultOfficial",
     description:
       "AceVault offers advanced secure storage solutions, ensuring your files are protected and easily accessible anytime, anywhere.",
-    site: "https://AceVault.io/",
+    site: "https://AceVault.vercel.app/",
     creator: "@AceVaultOfficial",
     title: "AceVault - Your ultimate vault for seamless, secure storage.",
     card: "summary_large_image",
     images: [
       {
-        url: "https://AceVault.vercel.app/images/big-og.png",
+        url: "https://AceVault.vercel.app/assets/images/big-og.png",
         width: 1200,
         height: 800,
         alt: "AceVault secure storage interface preview.",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   category: "website",
   icons: [
     {
-      url: "https://AceVault.vercel.app/images/og.png",
+      url: "https://AceVault.vercel.app/assets/images/og.png",
       type: "image/png",
     },
   ],
