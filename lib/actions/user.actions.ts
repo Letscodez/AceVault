@@ -28,10 +28,8 @@ export const sendEmailOTP = async ({ email }: { email: string }) => {
     return session.userId;
   } catch (error) {
     handleError(error, "Failed to send email OTP");
-    return null;
   }
 };
-
 export const createAccount = async (fullName: string, email: string) => {
   const existingUser = await getUserByEmail(email);
   const accountId = await sendEmailOTP({ email });
@@ -74,7 +72,7 @@ export const verifySecret = async ({
 
     return parseStringify({ sessionId: session.$id });
   } catch (error) {
-    handleError(error, "Failed to verify OTP. Please enter a valid OTP.");
+    handleError(error, "Failed to verify OTP");
   }
 };
 
@@ -82,25 +80,20 @@ export const getCurrentUser = async () => {
   try {
     const { databases, account } = await createSessionClient();
 
-    // Log the result of the account.get() call (session information)
     const result = await account.get();
 
-    // Query to find user with matching accountId
     const user = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.usersCollectionId,
       [Query.equal("accountId", result.$id)],
     );
 
-    // Check if no user document is found
     if (user.total <= 0) {
       return null;
     }
 
-    // Return the first document if found
     return parseStringify(user.documents[0]);
-  } catch (error) {
-    handleError(error, "Failed to get current user");
+  } catch {
     return null;
   }
 };
