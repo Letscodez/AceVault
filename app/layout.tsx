@@ -4,47 +4,47 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "EduViti - Your all in one Online Study platform.",
-    template: "%s | EduViti",
+    default: "AceVault - Your ultimate vault for seamless, secure storage.",
+    template: "%s | AceVault",
   },
   keywords:
-    "education, learning, online education, study platform, maths, science, free study material",
+    "secure storage, file vault, privacy, cloud storage, AceVault, secure file management",
   openGraph: {
     description:
-      "EduViti is an explorable platform offering Maths and Science materials, including exclusive notes, video lectures, question banks, and more, making it easy for students to access everything!",
-    title: "EduViti - Your all in one Online Study platform.",
+      "AceVault is your go-to platform for seamless and secure storage solutions. Manage and protect your files with ease and reliability.",
+    title: "AceVault - Your ultimate vault for seamless, secure storage.",
     type: "website",
-    url: "https://EduViti.me/",
-    siteName: "EduViti",
+    url: "https://AceVault.vercel.app/",
+    siteName: "AceVault",
     images: [
       {
-        url: "https://EduViti.me/og.png",
-        alt: "EduViti homepage showcasing Maths and Science learning resources.",
+        url: "https://AceVault.vercel.app/assets/images/og.png",
+        alt: "AceVault homepage showcasing secure file management features.",
       },
     ],
   },
   twitter: {
-    creatorId: "@EduVitiOfficial",
+    creatorId: "@AceVault",
     description:
-      "EduViti is an online learning platform offering Maths and Science resources including notes, video lectures, and more.",
-    site: "https://EduViti.me/",
-    creator: "@EduVitiOfficial",
-    title: "EduViti - Your all in one Online Study platform.",
+      "AceVault is your go-to platform for seamless and secure storage solutions. Manage and protect your files with ease and reliability.",
+    site: "https://AceVault.vercel.app/",
+    creator: "@AceVault",
+    title: "AceVault - Your ultimate vault for seamless, secure storage.",
     card: "summary_large_image",
     images: [
       {
-        url: "https://EduViti.me/big.png",
+        url: "https://AceVault.vercel.app/assets/images/big.png",
         width: 1200,
         height: 800,
-        alt: "EduViti homepage showcasing Maths and Science learning resources.",
+        alt: "AceVault homepage showcasing secure file management features.",
       },
     ],
   },
-  applicationName: "EduViti",
+  applicationName: "AceVault",
   category: "website",
   icons: [
     {
-      url: "https://EduViti.me/icon.png",
+      url: "https://AceVault.vercel.app/assets/images/og.png",
       type: "image/png",
     },
   ],
