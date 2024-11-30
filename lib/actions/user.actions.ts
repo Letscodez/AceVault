@@ -80,25 +80,20 @@ export const getCurrentUser = async () => {
   try {
     const { databases, account } = await createSessionClient();
 
-    // Log the result of the account.get() call (session information)
     const result = await account.get();
 
-    // Query to find user with matching accountId
     const user = await databases.listDocuments(
       appwriteConfig.databaseId,
       appwriteConfig.usersCollectionId,
       [Query.equal("accountId", result.$id)],
     );
 
-    // Check if no user document is found
     if (user.total <= 0) {
       return null;
     }
 
-    // Return the first document if found
     return parseStringify(user.documents[0]);
-  } catch (error) {
-    handleError(error, "Failed to get current user");
+  } catch {
     return null;
   }
 };
