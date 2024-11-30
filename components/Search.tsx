@@ -73,18 +73,18 @@ const Search = () => {
             {results.length > 0 ? (
               results.map((file) => (
                 <li
-                  className="flex items-center justify-between"
+                  className="flex items-center justify-between duration-200 cursor-pointer hover:scale-95"
                   key={file.$id}
                   onClick={() => handleClickItem(file)}
                 >
-                  <div className="flex cursor-pointer items-center gap-4">
+                  <div className="flex  items-center gap-4">
                     <Thumbnail
                       type={file.type}
                       extension={file.extension}
                       url={file.url}
                       className="size-9 min-w-9"
                     />
-                    <p className="subtitle-2 line-clamp-1 text-light-100">
+                    <p className="subtitle-2 line-clamp-1 text-gray-200">
                       {file.name}
                     </p>
                   </div>
