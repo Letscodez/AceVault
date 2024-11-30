@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: [
       {
-        url: "https://AceVault.vercel.app/assets/images/big.png",
+        url: "https://acevault.vercel.app/assets/images/big.png",
         width: 1200,
         height: 800,
         alt: "AceVault homepage showcasing secure file management features.",
