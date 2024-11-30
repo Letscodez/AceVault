@@ -1,62 +1,55 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font--poppins",
-});
 
 export const metadata: Metadata = {
   title: {
-    default: "AceVault - Your ultimate vault for seamless, secure storage.",
-    template: "%s | AceVault",
+    default: "EduViti - Your all in one Online Study platform.",
+    template: "%s | EduViti",
   },
-  description:
-    "AceVault is your go-to platform for seamless and secure storage solutions. Manage and protect your files with ease and reliability.",
   keywords:
-    "secure storage, file vault, privacy, cloud storage, AceVault, secure file management",
+    "education, learning, online education, study platform, maths, science, free study material",
   openGraph: {
     description:
-      "AceVault is your go-to platform for seamless and secure storage solutions. Manage and protect your files with ease and reliability.",
-    title: "AceVault - Your ultimate vault for seamless, secure storage.",
+      "EduViti is an explorable platform offering Maths and Science materials, including exclusive notes, video lectures, question banks, and more, making it easy for students to access everything!",
+    title: "EduViti - Your all in one Online Study platform.",
     type: "website",
-    url: "https://AceVault.vercel.app/",
-    siteName: "AceVault",
+    url: "https://EduViti.me/",
+    siteName: "EduViti",
     images: [
       {
-        url: "https://AceVault.vercel.app/assets/images/og.png",
-        alt: "AceVault interface showcasing secure storage features.",
+        url: "https://EduViti.me/og.png",
+        alt: "EduViti homepage showcasing Maths and Science learning resources.",
       },
     ],
   },
   twitter: {
-    creatorId: "@AceVaultOfficial",
+    creatorId: "@EduVitiOfficial",
     description:
-      "AceVault offers advanced secure storage solutions, ensuring your files are protected and easily accessible anytime, anywhere.",
-    site: "https://AceVault.vercel.app/",
-    creator: "@AceVaultOfficial",
-    title: "AceVault - Your ultimate vault for seamless, secure storage.",
+      "EduViti is an online learning platform offering Maths and Science resources including notes, video lectures, and more.",
+    site: "https://EduViti.me/",
+    creator: "@EduVitiOfficial",
+    title: "EduViti - Your all in one Online Study platform.",
     card: "summary_large_image",
     images: [
       {
-        url: "https://AceVault.vercel.app/assets/images/big-og.png",
+        url: "https://EduViti.me/big.png",
         width: 1200,
         height: 800,
-        alt: "AceVault secure storage interface preview.",
+        alt: "EduViti homepage showcasing Maths and Science learning resources.",
       },
     ],
   },
-  applicationName: "AceVault",
+  applicationName: "EduViti",
   category: "website",
   icons: [
     {
-      url: "https://AceVault.vercel.app/assets/images/og.png",
+      url: "https://EduViti.me/icon.png",
       type: "image/png",
     },
   ],
 };
+
 
 export default function RootLayout({
   children,
@@ -65,7 +58,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins} font-poppins antialiased`}>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }
