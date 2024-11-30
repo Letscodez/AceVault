@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-
 export const metadata: Metadata = {
   title: {
     default: "AceVault - Your ultimate vault for seamless, secure storage.",
@@ -24,11 +23,9 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    creatorId: "@AceVault",
     description:
       "AceVault is your go-to platform for seamless and secure storage solutions. Manage and protect your files with ease and reliability.",
     site: "https://AceVault.vercel.app/",
-    creator: "@AceVault",
     title: "AceVault - Your ultimate vault for seamless, secure storage.",
     card: "summary_large_image",
     images: [
@@ -42,14 +39,7 @@ export const metadata: Metadata = {
   },
   applicationName: "AceVault",
   category: "website",
-  icons: [
-    {
-      url: "https://AceVault.vercel.app/assets/images/og.png",
-      type: "image/png",
-    },
-  ],
 };
-
 
 export default function RootLayout({
   children,
